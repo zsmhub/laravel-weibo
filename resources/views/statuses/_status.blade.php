@@ -7,6 +7,7 @@
     {{ $status->content }}
   </div>
 
+  <!-- can () 方法会根据第二个参数的模型的类型，去授权策略注册表里面查找该模型对应的授权策略类 -->
   @can('destroy', $status)
     <form action="{{ route('statuses.destroy', $status->id) }}" method="POST"  onsubmit="return confirm('您确定要删除本条微博吗？');">
       @csrf
