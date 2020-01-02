@@ -87,7 +87,7 @@ class UsersController extends Controller
         $this->authorize('destroy', $user);
         $user->delete();
         session()->flash('success', '成功删除用户！');
-        return back();
+        return redirect()->back();
     }
 
     public function index()
