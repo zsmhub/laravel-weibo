@@ -38,3 +38,6 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 Route::post('/statuses', 'StatusesController@store')->name('statuses.store');
 Route::delete('/statuses/{status}', 'StatusesController@destroy')->name('statuses.destroy');
+
+Route::get('/users/{user}/followings', 'UsersController@followings')->name('users.followings');
+Route::get('/users/{user}/followers', 'UsersController@followers')->name('users.followers');
