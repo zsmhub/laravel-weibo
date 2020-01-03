@@ -7,6 +7,11 @@
     <section class="user_info">
       @include('shared._user_info', ['user' => $user])
     </section>
+
+    @if (Auth::check())
+      @include('users._follow_form', ['user' => $user])
+    @endif
+
     <section class="stats mt-2">
       @include('shared._stats', ['user' => $user])
     </section>
@@ -14,7 +19,7 @@
       @if ($statuses->count() > 0)
         <ul class="list-unstyled">
           @foreach ($statuses as $status)
-            @include('statuses._status')
+            @include('statuses._status', ['user' => $user, 'status' => $status])
           @endforeach
         </ul>
         <div class="mt-5">
